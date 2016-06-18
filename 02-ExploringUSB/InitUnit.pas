@@ -10,7 +10,7 @@ unit InitUnit;
 { included first in the list of units so that the initialization section below }
 { happens before all other units like RaspberryPi2, Console and Logging.       }
 {                                                                              }
-{ Why do want these things to happen first?                                    }
+{ Why do we want these things to happen first?                                 }
 { Because CONSOLE_SHELL_ENABLED is set to True by default and if we include the}
 { ConsoleShell unit then it will automatically create a console shell window   }
 { on any console device it finds during initialization.                        }

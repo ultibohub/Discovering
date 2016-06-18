@@ -6,5 +6,9 @@ This is the example code for each episode of the Discovering Ultibo video series
 
 02-ExploringUSB - Episode 2 Exploring USB, looking at the capabilities of Ultibo core for handling a variety of standard USB devices.
 
+03-BuildingRTL - Episode 3 Building the RTL, how to keep your Ultibo core installation up to date with the latest features and fixes.
+
+04-GPIOEvents - Episode 4 GPIO Events, going beyond the normal GPIO examples to look at the new event mechanisms in Ultibo core.
+
 
 The Discovering Ultibo videos can be found on the Ultibo YouTube channel at https://www.youtube.com/channel/UCFSAYWD8k15nhdmX6CgyhvA
