@@ -47,7 +47,7 @@ begin
   console device to the ConsoleShellDeviceAdd function to create a console shell}
  CONSOLE_SHELL_ENABLED:=True;
  CONSOLE_SHELL_POSITION:=CONSOLE_POSITION_TOP;
- ConsoleShellDeviceAdd(ConsoleDeviceGetDefault);
+ ConsoleShellDeviceAdd(ConsoleDeviceGetDefault,False);
 
  {Start the Console logging}
  {Enable console logging and set the logging position to where we want it, then
