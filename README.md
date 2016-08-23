@@ -10,5 +10,8 @@ This is the example code for each episode of the Discovering Ultibo video series
 
 04-GPIOEvents - Episode 4 GPIO Events, going beyond the normal GPIO examples to look at the new event mechanisms in Ultibo core.
 
+05-LCD16x2 - Episode 5 LCD 16x2, showing how new devices can be added to Ultibo core and used by the standard API.
+
+06-RemoteLED - Episode 6 Remote LED, exploring how easy it is to create dynamic web content and use it the control your gadgets.
 
 The Discovering Ultibo videos can be found on the Ultibo YouTube channel at https://www.youtube.com/channel/UCFSAYWD8k15nhdmX6CgyhvA
