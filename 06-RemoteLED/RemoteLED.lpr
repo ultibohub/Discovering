@@ -32,7 +32,7 @@ uses
   SysUtils,
   Classes,
   Ultibo,
-  
+
   {The units above are the standard ones included when you create a new Raspberry
    Pi 2B project, the ones below have beed added for this demo. The RaspberryPi2
    unit above ensures that all of the necessary units like USB, MMC and Filesystem
@@ -43,24 +43,24 @@ uses
   LEDPage,     {Add our LED page unit for our custom HTTPDocument class}
   ParamsPage;  {And add the params page unit so we can see the parameters passed to the server}
 
-var 
+var
  IPAddress:String;
  WindowHandle:TWindowHandle;
  HTTPListener:THTTPListener;
- RemoteLEDPage:TRemoteLEDPage; 
+ RemoteLEDPage:TRemoteLEDPage;
  ParametersPage:TParametersPage;
  Winsock2TCPClient:TWinsock2TCPClient;
- 
+
 begin
  {Create a window, just so that we can print the IP address and URL}
  WindowHandle:=ConsoleWindowCreate(ConsoleDeviceGetDefault,CONSOLE_POSITION_FULL,True);
 
  {Create a Winsock2TCPClient to get the IP address}
  Winsock2TCPClient:=TWinsock2TCPClient.Create;
- 
+
  {Get the IP address which may be invalid at this point}
  IPAddress:=Winsock2TCPClient.LocalAddress;
- 
+
  {Check the IP address}
  if (IPAddress = '') or (IPAddress = '0.0.0.0') or (IPAddress = '255.255.255.255') then
   begin
@@ -74,37 +74,37 @@ begin
      IPAddress:=Winsock2TCPClient.LocalAddress;
     end;
   end;
- 
+
  {Enable both the Activity and Power LEDs}
  {The Power LED only works on certain models of Raspberry Pi (eg A+/B+/2B) but the Activity
   LED will work on all of them}
  ActivityLEDEnable;
  PowerLEDEnable;
-  
+
  {Create the HTTP listener, this is similar to our WebServer example}
  HTTPListener:=THTTPListener.Create;
  HTTPListener.Active:=True;
- 
+
  {Now we create an instance of our LED page}
  RemoteLEDPage:=TRemoteLEDPage.Create;
- 
+
  {And register our LED page with the HTTP listener}
  HTTPListener.RegisterDocument('',RemoteLEDPage);
- 
+
  {So you can explore what is going on, we create a parameters page}
  ParametersPage:=TParametersPage.Create;
- 
+
  {And register it as well with the HTTP listener}
  HTTPListener.RegisterDocument('',ParametersPage);
- 
+
  {Report the URL on the console window}
  ConsoleWindowWriteLn(WindowHandle,'Ready, point your browser to http://' + Winsock2TCPClient.LocalAddress + '/RemoteLED');
- 
+
  {Free the Winsock2TCPClient object}
  Winsock2TCPClient.Free;
- 
+
  {And halt this thread because the action happens elsewhere}
  ThreadHalt(0);
- 
+
 end.
 

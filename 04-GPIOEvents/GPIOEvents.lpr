@@ -41,7 +41,7 @@ const
  SWITCH_STATE_OFF = 0;
  SWITCH_STATE_ON  = 1;
 
- 
+
 var
  {Declare a variable for a window handle and one to hold the switch state}
  State:LongWord;
@@ -85,7 +85,7 @@ begin
  {Create a normal console window using the full screen}
  Handle:=ConsoleWindowCreate(ConsoleDeviceGetDefault,CONSOLE_POSITION_FULL,True);
 
- {Set GPIO pin 18 (our switch) to Pull Up so the pin will be High when the switch 
+ {Set GPIO pin 18 (our switch) to Pull Up so the pin will be High when the switch
   is off and Low when the switch is On. Then set the function of pin 18 to be an
   Input so we can read the switch state using the GPIOInputGet() function}
  GPIOPullSelect(GPIO_PIN_18,GPIO_PULL_UP);
@@ -97,7 +97,7 @@ begin
  GPIOPullSelect(GPIO_PIN_20,GPIO_PULL_NONE);
  GPIOFunctionSelect(GPIO_PIN_20,GPIO_FUNCTION_OUT);
  GPIOOutputSet(GPIO_PIN_20,GPIO_LEVEL_LOW);
- 
+
  {Do the same for GPIO pin 21 (the other LED)}
  GPIOPullSelect(GPIO_PIN_21,GPIO_PULL_NONE);
  GPIOFunctionSelect(GPIO_PIN_21,GPIO_FUNCTION_OUT);
@@ -112,15 +112,15 @@ begin
    State:=SWITCH_STATE_ON;
 
    {Register for an event by calling the GPIOInputEvent() function.
-   
+
     We need to specify a few things to GPIOInputEvent()
-    
+
     The pin number for the event which is GPIO_PIN_18.
     What the trigger for the event is, GPIO_TRIGGER_HIGH because the pin is currently low.
     How long to wait for the event, INFINITE to wait forever.
     The function to call when the event happens which is our GPIOEventFunction above.
     Any private data we would like passed to our function with the event, in this case nil (or nothing).
-   
+
     GPIOInputEvent will register the requested event internally within the GPIO driver
     and return immediately with success (ERROR_SUCCESS) or failure (any other value).
     If it succeeded then our program can move on with whatever it is doing confident that
@@ -139,7 +139,7 @@ begin
 
  {Loop around checking the state variable and blinking the LEDs either both at
   once or alternately depending on whether the switch is On or Off. This could
-  also be done without a loop by using some of the other functions in Ultibo 
+  also be done without a loop by using some of the other functions in Ultibo
   like Timer and Worker events but we'll look at those in another episode}
  while True do
   begin

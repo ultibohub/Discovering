@@ -24,7 +24,7 @@ uses
   SysUtils,
   Classes,
   Ultibo,
-  
+
   {The units above are the standard ones included when you create a new Raspberry
    Pi 2B project, the ones below have beed added for this demo. The RaspberryPi2
    unit above ensures that all of the necessary units like USB, MMC and Filesystem
@@ -36,7 +36,7 @@ uses
 
   {The Hack font is created from a freely available font created by Christopher
    Simpkins which you can find on GitHub here https://github.com/chrissimpkins/Hack}
-  
+
 var
  {A couple of window handles and a counter variable}
  Window1:THandle;
@@ -64,9 +64,9 @@ begin
 
  {Set the font for each window by calling the FontFindByName() function with the
   name of the font we want to use.
-  
+
   Each console window can be set to a different font but only one font is allowed
-  per console window, this is similar to the Windows command prompt or the Linux 
+  per console window, this is similar to the Windows command prompt or the Linux
   console}
  ConsoleWindowSetFont(Window1,FontFindByName('Hack_30'));
  ConsoleWindowSetFont(Window2,FontFindByName('Sun-12x22'));
